@@ -15,7 +15,7 @@ def ReadTestData(filename):
     return np.array(X)
 
 def Write(filename):
-    Y_test = pd.read_csv("Test.csv", encoding="big5").iloc[:,:2].rename(index=str, columns={"id_0":"id", "AMB_TEMP":"value"})
+    Y_test = pd.read_csv(filename, encoding="big5").iloc[:,:2].rename(index=str, columns={"id_0":"id", "AMB_TEMP":"value"})
     Y_test["value"]=0
     b=pd.DataFrame(Y_test['id'].unique(), columns=["id"])
     c=pd.DataFrame( np.random.randint(low=0,high=1,size=(260,1)),columns=["value"] )
