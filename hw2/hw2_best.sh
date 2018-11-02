@@ -1,3 +1,3 @@
 #/usr/bin bash
 
-python3 hw2_best.py $1 $2 $3 $4
+python3 train_best.py $1 $2 $3 $4

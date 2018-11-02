@@ -1,3 +1,3 @@
 #/usr/bin bash
 
-python3 hw2.py $1 $2 $3 $4
+python3 train.py $1 $2 $3 $4
