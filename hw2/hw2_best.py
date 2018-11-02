@@ -85,7 +85,7 @@ W = np.load('model.npy')
 b = np.load('modelb.npy') 
 #test data
 #test_X = pd.read_csv('test_x.csv', encoding='big5')
-test_X = pd.read_csv(argv[3], encoding='big5')
+test_X = pd.read_csv(sys.argv[3], encoding='big5')
 
 test_X = OneHotEncoding(test_X)
 a=pd.DataFrame({"PAY_6_8":[0]*10000})

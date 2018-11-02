@@ -34,7 +34,7 @@ class Logistic_Regression():
         Y_pred[Y_pred<threshold] = 0
         Y_pred[Y_pred >= threshold] = 1
         return Y_pred
-    def train(self, X, Y, valid_X, valid_Y, epochs=100000, lr=0.01): 
+    def train(self, X, Y, valid_X, valid_Y, epochs=10000, lr=0.01): 
         
         batch_size = X.shape[0]
         self.parameter_init(X.shape[1])
@@ -102,7 +102,7 @@ np.save('modelb.npy',b)
 #W1 = np.load('model_0.81720.npy') 
 #test data
 #test_X = pd.read_csv('test_x.csv', encoding='big5')
-test_X = pd.read_csv(argv[3], encoding='big5')
+test_X = pd.read_csv(sys.argv[3], encoding='big5')
 
 test_X = OneHotEncoding(test_X)
 a=pd.DataFrame({"PAY_6_8":[0]*10000})
