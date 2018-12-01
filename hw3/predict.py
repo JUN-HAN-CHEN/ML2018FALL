@@ -23,7 +23,7 @@ def load_data1():
 x_test = load_data1()
 x_test = x_test.reshape( x_test.shape[0], 48, 48, 1)
 
-model = load_model('model_tmp')
+model = load_model('model_tmp?dl=1')
 prd_class = model.predict_classes(x_test)
 #plot_model(model, to_file='model.png')
 #Output
