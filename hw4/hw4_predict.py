@@ -38,14 +38,14 @@ def preprocess(filepath):#讀檔   刪字   斷詞
     #print(len(dfid),len(seg_list))
     df=pd.DataFrame(dfd,columns=["comment"])     
     return df
-model =Word2Vec.load("word2vec.model")
-pretrained_weights = model.wv.syn0
+word_model =Word2Vec.load("word2vec.model")
+pretrained_weights = word_model.wv.syn0
 vocab_size, emdedding_size = pretrained_weights.shape
 print(vocab_size)
 print(emdedding_size)
-vocab_list = [(word, model.wv[word]) for word, _ in model.wv.vocab.items()]
+vocab_list = [(word, word_model.wv[word]) for word, _ in word_model.wv.vocab.items()]
 print("hi",len(vocab_list))
-embedding_matrix = np.zeros((len(model.wv.vocab.items()) + 1, model.vector_size))
+embedding_matrix = np.zeros((len(word_model.wv.vocab.items()) + 1, word_model.vector_size))
 word2idx = {}
 for i, vocab in enumerate(vocab_list):
     word, vec = vocab
@@ -63,7 +63,7 @@ def text_to_index(corpus):
         new_corpus.append(new_doc)
     return np.array(new_corpus)
 PADDING_LENGTH=64
-word_model = Word2Vec.load('word2vec.model')
+
 model = load_model('best')
 X_test=preprocess(sys.argv[1])
 X_test = text_to_index(X_test.comment)
